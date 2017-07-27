@@ -20,8 +20,6 @@ eventEmitter.on('data_received', function(){
     console.log("data received successfully.");
 });
 
-console.log("Event Fired");
-
 var http = require("http");
 
 var server = http.createServer(function (request, response) {
@@ -30,8 +28,8 @@ var server = http.createServer(function (request, response) {
     // Content Type: text/plain
     response.writeHead(200, {'Content-Type':'text/plain'});
 
-    // Send the response body as "Hello World"
-    response.end('Hello World\n');
+    // Send the response body as "Event Fired"
+    response.end('Event Fired\n');
 
     // Fire the connection event
     eventEmitter.emit('connection');
