@@ -1,18 +1,18 @@
-console.log("Hello World");
+// Let's try to print the value of __filename
+console.log(__filename);
 
-var http = require("http");
+// Let's try to print the value of __dirname
+console.log(__dirname);
 
-var server = http.createServer(function (request, response) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    response.writeHead(200, {'Content-Type':'text/plain'});
+var c = 0;
+function printInterval() {
+    console.log("Interval " + c++);
+}
+var interval = setInterval(printInterval, 1000)
 
-    // Send the response body as "Hello World"
-    response.end('Hello World\n');
-});
+function printHello() {
+    console.log("Hello!");
+    clearInterval(interval);
+}
+setTimeout(printHello, 4000);
 
-server.listen(8081);
-
-// Console will log the message
-console.log("Server running at http://localhost:8081");
